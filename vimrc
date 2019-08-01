@@ -43,6 +43,12 @@ set tabstop=2
 set showmatch " Show matching brackets
 set mat=5 " Show bracket blinking
 
+" Set tab to use 2 spaces
+set expandtab " Use spaces instead of TABS to indent
+set tabstop=2 " Show tabs as 2 spaces
+set softtabstop=2
+set shiftwidth=2 "When using > to indent use 2 spaces
+
 " configure file explorer
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
