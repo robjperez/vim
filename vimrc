@@ -34,7 +34,13 @@ filetype plugin indent on    " required
 "
 
 if has("gui_running")
-	set guifont=Fira\ Code:h12
+  if has("gui_gtk3")
+    set guifont=Fira\ Code\ 12
+    colorscheme evening
+  endif
+  if has("gui_macvim")
+	  set guifont=Fira\ Code:h12
+  endif
 	set linespace=2
 endif
 
