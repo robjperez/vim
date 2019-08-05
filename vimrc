@@ -1,3 +1,5 @@
+" Vundle configuration ----------------------------------------------
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -32,32 +34,58 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 "
+" -------------------------------------------------------------------
 
-if has("gui_running")
-  if has("gui_gtk3")
-    set guifont=Fira\ Code\ 12
-    colorscheme evening
+function! s:ConfigureFont()
+  if has("gui_running")
+    if has("gui_gtk3")
+      set guifont=Fira\ Code\ 12
+      colorscheme evening
+    endif
+    if has("gui_macvim")
+      set guifont=Fira\ Code:h12
+      colorscheme macvim
+    endif
+    set linespace=2
   endif
-  if has("gui_macvim")
-	  set guifont=Fira\ Code:h12
-  endif
-	set linespace=2
-endif
+endfunction
 
-set nu " Set line numbers
-set tabstop=2
-set showmatch " Show matching brackets
-set mat=5 " Show bracket blinking
+function! s:ConfigureEditorSettings()
+  set nu " Set line numbers
+  set tabstop=2
+  set showmatch " Show matching brackets
+  set mat=5 " Show bracket blinking
 
-" Set tab to use 2 spaces
-set expandtab " Use spaces instead of TABS to indent
-set tabstop=2 " Show tabs as 2 spaces
-set softtabstop=2
-set shiftwidth=2 "When using > to indent use 2 spaces
+  " Set tab to use 2 spaces
+  set expandtab " Use spaces instead of TABS to indent
+  set tabstop=2 " Show tabs as 2 spaces
+  set softtabstop=2
+  set shiftwidth=2 "When using > to indent use 2 spaces
 
-" configure file explorer
-let g:netrw_banner = 0
-let g:netrw_liststyle = 3
-let g:netrw_browse_split = 4
-let g:netrw_altv = 1
-let g:netrw_winsize = 25
+  set noeb vb t_vb= "No error bells
+
+  " Trim spaces on save
+  autocmd BufWritePre *.* %s/\s\+$//e
+endfunction
+
+function! s:ConfigureVisualElements()
+  set fillchars+=vert:\ "Set vertical split bar theme
+
+  " These two lines does not work in this file. Investigate
+  hi VertSplit guifg=fg guibg=bg
+  hi EndOfBuffer guifg=bg " hide ~ chars at the end of the buffer
+endfunction
+
+function! s:ConfigureFileExplorer()
+  let g:netrw_banner = 0
+  let g:netrw_liststyle = 3
+  let g:netrw_browse_split = 4
+  let g:netrw_altv = 1
+  let g:netrw_winsize = 25
+endfunction
+
+" ----------------
+call s:ConfigureFont()
+call s:ConfigureEditorSettings()
+call s:ConfigureFileExplorer()
+call s:ConfigureVisualElements()
