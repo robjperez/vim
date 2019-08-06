@@ -5,6 +5,10 @@ filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
+if has('win32') || has('win64')
+  set rtp+=~/vimfiles/bundle/Vundle.vim
+endif
+
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
@@ -46,6 +50,10 @@ function! s:ConfigureFont()
       set guifont=Fira\ Code:h12
       colorscheme macvim
     endif
+    if has("win32") || has("win64")
+      set guifont=Fira\ Code:h12
+      colorscheme evening
+    endif
     set linespace=2
   endif
 endfunction
@@ -63,6 +71,12 @@ function! s:ConfigureEditorSettings()
   set shiftwidth=2 "When using > to indent use 2 spaces
 
   set noeb vb t_vb= "No error bells
+
+  if has("win32") || has("win64")
+    set backspace=indent,eol,start
+    set guioptions=
+    autocmd GUIEnter * set vb t_vb= "Only on windows
+  endif
 
   " Trim spaces on save
   autocmd BufWritePre *.* %s/\s\+$//e
