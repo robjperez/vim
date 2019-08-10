@@ -1,3 +1,5 @@
+let mapleader=" " "Map leader ASAP so it does not interfere with other things
+
 " Vundle configuration ----------------------------------------------
 
 set nocompatible              " be iMproved, required
@@ -72,6 +74,9 @@ function! s:ConfigureEditorSettings()
 
   set noeb vb t_vb= "No error bells
 
+  set hlsearch "Highlight search result
+  set incsearch "Incremental searching
+
   if has("win32") || has("win64")
     set backspace=indent,eol,start
     set guioptions=
@@ -98,8 +103,14 @@ function! s:ConfigureFileExplorer()
   let g:netrw_winsize = 25
 endfunction
 
+function! s:ConfigureRemaps()
+  nnoremap <Leader>p :bn<cr>
+  nnoremap <Leader>o :bp<cr>
+endfunction
+
 " ----------------
 call s:ConfigureFont()
 call s:ConfigureEditorSettings()
 call s:ConfigureFileExplorer()
 call s:ConfigureVisualElements()
+call s:ConfigureRemaps()
