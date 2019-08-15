@@ -106,6 +106,8 @@ endfunction
 function! s:ConfigureRemaps()
   nnoremap <Leader>p :bn<cr>
   nnoremap <Leader>o :bp<cr>
+  nnoremap <C-Left> :tabprevious<cr>
+  nnoremap <C-Right> :tabnext<cr>
 endfunction
 
 " ----------------
