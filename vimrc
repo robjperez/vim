@@ -74,6 +74,7 @@ function! s:ConfigureEditorSettings()
 
   set noeb vb t_vb= "No error bells
 
+  syntax on
   set hlsearch "Highlight search result
   set incsearch "Incremental searching
 
