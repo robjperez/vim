@@ -25,6 +25,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'vim-airline/vim-airline'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'neoclide/coc.nvim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -111,9 +112,72 @@ function! s:ConfigureRemaps()
   nnoremap <S-Right> :tabnext<cr>
 endfunction
 
+function! s:ConfigureCocNvim()
+  " You will have bad experience for diagnostic messages when it's default 4000.
+  set updatetime=300
+
+  " don't give |ins-completion-menu| messages.
+  set shortmess+=c
+
+  " Use tab for trigger completion with characters ahead and navigate.
+  " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+  inoremap <silent><expr> <TAB>
+        \ pumvisible() ? "\<C-n>" :
+        \ <SID>check_back_space() ? "\<TAB>" :
+        \ coc#refresh()
+  inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+  function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
+  endfunction
+
+  " Use <c-space> to trigger completion.
+  inoremap <silent><expr> <c-space> coc#refresh()
+
+  " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+  " Coc only does snippet and additional edit on confirm.
+  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+  " Use <esc> to cancel completion
+  inoremap <expr> <esc> pumvisible() ? "\<C-e>" : "<esc>"
+
+  " Use `[c` and `]c` to navigate diagnostics
+  nmap <silent> [c <Plug>(coc-diagnostic-prev)
+  nmap <silent> ]c <Plug>(coc-diagnostic-next)
+
+  " Remap keys for gotos
+  nmap <silent> gd <Plug>(coc-definition)
+  nmap <silent> gy <Plug>(coc-type-definition)
+  nmap <silent> gi <Plug>(coc-implementation)
+  nmap <silent> gr <Plug>(coc-references)
+  " Highlight symbol under cursor on CursorHold
+  autocmd CursorHold * silent call CocActionAsync('highlight')
+
+  set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
+  " Using CocList
+  " Show all diagnostics
+  nnoremap <silent> ca  :<C-u>CocList diagnostics<cr>
+  " Manage extensions
+  nnoremap <silent> ce  :<C-u>CocList extensions<cr>
+  " Show commands
+  nnoremap <silent> cc  :<C-u>CocList commands<cr>
+  " Find symbol of current document
+  nnoremap <silent> co  :<C-u>CocList outline<cr>
+  " Search workspace symbols
+  nnoremap <silent> cs  :<C-u>CocList -I symbols<cr>
+  " Do default action for next item.
+  nnoremap <silent> cj  :<C-u>CocNext<CR>
+  " Do default action for previous item.
+  nnoremap <silent> ck  :<C-u>CocPrev<CR>
+  " Resume latest coc list
+  nnoremap <silent> cp  :<C-u>CocListResume<CR>
+endfunction
+
 " ----------------
 call s:ConfigureFont()
 call s:ConfigureEditorSettings()
 call s:ConfigureFileExplorer()
 call s:ConfigureVisualElements()
 call s:ConfigureRemaps()
+call s:ConfigureCocNvim()
