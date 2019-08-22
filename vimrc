@@ -141,9 +141,8 @@ function! s:ConfigureCocNvim()
   " Use <esc> to cancel completion
   inoremap <expr> <esc> pumvisible() ? "\<C-e>" : "<esc>"
 
-  " Use `[c` and `]c` to navigate diagnostics
-  nmap <silent> [c <Plug>(coc-diagnostic-prev)
-  nmap <silent> ]c <Plug>(coc-diagnostic-next)
+  " Use `<space>c` to navigate diagnostics
+  nmap <silent> <Leader>c <Plug>(coc-diagnostic-next)
 
   " Remap keys for gotos
   nmap <silent> gd <Plug>(coc-definition)
