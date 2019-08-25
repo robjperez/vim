@@ -55,7 +55,7 @@ function! s:ConfigureFont()
     endif
     if has("win32") || has("win64")
       set guifont=Fira\ Code:h12
-      colorscheme evening
+      colorscheme desert 
     endif
     set linespace=2
   endif
