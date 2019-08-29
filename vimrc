@@ -26,6 +26,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'neoclide/coc.nvim'
+Plugin 'vim-airline/vim-airline-themes'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -85,6 +86,9 @@ function! s:ConfigureEditorSettings()
     autocmd GUIEnter * set vb t_vb= "Only on windows
   endif
 
+  let g:airline_theme='violet'
+  let g:airline_powerline_fonts=1
+
   " Trim spaces on save
   autocmd BufWritePre *.* %s/\s\+$//e
 endfunction
@@ -110,6 +114,7 @@ function! s:ConfigureRemaps()
   nnoremap <Leader>o :bp<cr>
   nnoremap <S-Left> :tabprevious<cr>
   nnoremap <S-Right> :tabnext<cr>
+  nnoremap ; :
 endfunction
 
 function! s:ConfigureCocNvim()
