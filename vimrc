@@ -56,7 +56,7 @@ function! s:ConfigureFont()
     endif
     if has("win32") || has("win64")
       set guifont=Fira\ Code:h12
-      colorscheme desert 
+      colorscheme desert
     endif
     set linespace=2
   endif
@@ -143,8 +143,6 @@ function! s:ConfigureCocNvim()
   " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
   " Coc only does snippet and additional edit on confirm.
   inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-  " Use <esc> to cancel completion
-  inoremap <expr> <esc> pumvisible() ? "\<C-e>" : "<esc>"
 
   " Use `<space>c` to navigate diagnostics
   nmap <silent> <Leader>c <Plug>(coc-diagnostic-next)
