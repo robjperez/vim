@@ -115,6 +115,8 @@ function! s:ConfigureRemaps()
   nnoremap <S-Left> :tabprevious<cr>
   nnoremap <S-Right> :tabnext<cr>
   nnoremap ; :
+  inoremap <C-s> <C-o>:w<cr>
+  nnoremap <C-s> :w<cr>
 endfunction
 
 function! s:ConfigureCocNvim()
