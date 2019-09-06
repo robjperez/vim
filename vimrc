@@ -27,6 +27,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'neoclide/coc.nvim'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'rafi/awesome-vim-colorschemes'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -51,8 +52,8 @@ function! s:ConfigureFont()
       colorscheme evening
     endif
     if has("gui_macvim")
-      set guifont=Fira\ Code:h12
-      colorscheme macvim
+      set guifont=Iosevka:h13
+      colorscheme atom
     endif
     if has("win32") || has("win64")
       set guifont=Fira\ Code:h12
