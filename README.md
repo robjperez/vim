@@ -15,3 +15,6 @@ git submodule update --remote
 ```
 vim +PluginInstall +qall
 ```
+
+# Link to fonts
+[Iosevka](https://github.com/be5invis/Iosevka/releases)
