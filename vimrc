@@ -28,6 +28,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'neoclide/coc.nvim'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'rafi/awesome-vim-colorschemes'
+Plugin 'jremmen/vim-ripgrep'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -118,6 +119,7 @@ function! s:ConfigureRemaps()
   nnoremap ; :
   inoremap <C-s> <C-o>:w<cr>
   nnoremap <C-s> :w<cr>
+  nnoremap \ :Rg<Space>
 endfunction
 
 function! s:ConfigureCocNvim()
