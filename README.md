@@ -1,9 +1,8 @@
-# How to install it
+# How to install it (Unix)
 
 ```
-git clone --recurse-submodules git@github.com:robjperez/vim.git
-mv vim ~/.vim
-cp ~/.vim/vimrc ~/.vimrc
+git clone --recurse-submodules git@github.com:robjperez/vim.git .vim
+ln -s .vim/vimrc .vimrc
 ```
 
 # How to update submodule
@@ -18,3 +17,4 @@ vim +PluginInstall +qall
 
 # Link to fonts
 [Iosevka](https://github.com/be5invis/Iosevka/releases)
+[FiraCode](https://github.com/tonsky/FiraCode/releases)
