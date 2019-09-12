@@ -123,6 +123,10 @@ function! s:ConfigureRemaps()
   nnoremap \ :Rg<Space>
 endfunction
 
+function! s:ConfigureCommands()
+  command Bd bp\|bd \# "Close buffer without closing the split
+endfunction
+
 function! s:ConfigureCocNvim()
   " You will have bad experience for diagnostic messages when it's default 4000.
   set updatetime=300
@@ -189,3 +193,4 @@ call s:ConfigureFileExplorer()
 call s:ConfigureVisualElements()
 call s:ConfigureRemaps()
 call s:ConfigureCocNvim()
+call s:ConfigureCommands()
