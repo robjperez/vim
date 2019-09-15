@@ -50,7 +50,7 @@ function! s:ConfigureFont()
   if has("gui_running")
     if has("gui_gtk3")
       set guifont=Fira\ Code\ 12
-      colorscheme evening
+      colorscheme atom
     endif
     if has("gui_macvim")
       set guifont=Iosevka:h13
@@ -86,6 +86,8 @@ function! s:ConfigureEditorSettings()
     set backspace=indent,eol,start
     set guioptions=
     autocmd GUIEnter * set vb t_vb= "Only on windows
+  elseif has("gui_gtk3")
+    set guioptions=r "Just right scroll bar
   endif
 
   let g:airline_theme='violet'
