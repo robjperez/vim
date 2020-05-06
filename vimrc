@@ -29,6 +29,9 @@ Plugin 'neoclide/coc.nvim'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'rafi/awesome-vim-colorschemes'
 Plugin 'jremmen/vim-ripgrep'
+Plugin 'keith/gist.vim'
+Plugin 'preservim/nerdtree'
+Plugin 'ryanoasis/vim-devicons'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -53,7 +56,7 @@ function! s:ConfigureFont()
       colorscheme evening
     endif
     if has("gui_macvim")
-      set guifont=Iosevka:h13
+      set guifont=Mononoki\ nerd\ font\ mono:h14
       colorscheme atom
     endif
     if has("win32") || has("win64")
@@ -93,6 +96,10 @@ function! s:ConfigureEditorSettings()
 
   " Trim spaces on save
   autocmd BufWritePre *.* %s/\s\+$//e
+
+	" Set chars for hidden chars
+	" They will be shown when doing :set list
+	set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,space:.
 endfunction
 
 function! s:ConfigureVisualElements()
@@ -115,12 +122,14 @@ function! s:ConfigureRemaps()
   nnoremap <Leader>p :bn<cr>
   nnoremap <Leader>o :bp<cr>
   nnoremap <Leader>x :bd<cr>
+  nnoremap <Leader>q :bp<bar>sp<bar>bn<bar>bd<cr>
   nnoremap <S-Left> :tabprevious<cr>
   nnoremap <S-Right> :tabnext<cr>
   nnoremap ; :
   inoremap <C-s> <C-o>:w<cr>
   nnoremap <C-s> :w<cr>
   nnoremap \ :Rg<Space>
+  nnoremap <C-e> :NERDTreeToggle<cr>
 endfunction
 
 function! s:ConfigureCommands()
