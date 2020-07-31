@@ -56,7 +56,7 @@ function! s:ConfigureFont()
       colorscheme atom
     endif
     if has("gui_macvim")
-      set guifont=Mononoki\ nerd\ font\ mono:h14
+      set guifont=VictorMonoNerdFontCompleteM-Medium:h12
       colorscheme atom
     endif
     if has("win32") || has("win64")
