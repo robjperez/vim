@@ -197,6 +197,9 @@ function! s:ConfigureCocNvim()
   nnoremap <silent> cp  :<C-u>CocListResume<CR>
 endfunction
 
+function! s:ConfigureNERDTree()
+  let g:NERDTreeIgnore=['\.pyc$', '\.swp$'] " Ignore this files in the tree
+endfunction
 " ----------------
 call s:ConfigureFont()
 call s:ConfigureEditorSettings()
@@ -205,3 +208,4 @@ call s:ConfigureVisualElements()
 call s:ConfigureRemaps()
 call s:ConfigureCocNvim()
 call s:ConfigureCommands()
+call s:ConfigureNERDTree()
