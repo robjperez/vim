@@ -60,8 +60,10 @@ function! s:ConfigureFont()
       colorscheme atom
     endif
     if has("win32") || has("win64")
-      set guifont=Fira\ Code:h12
-      colorscheme desert
+      set guifont=VictorMono_NF:h12
+      set lines=45
+      set columns=150
+      colorscheme atom
     endif
     set linespace=2
   endif
