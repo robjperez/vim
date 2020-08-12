@@ -52,7 +52,7 @@ filetype plugin indent on    " required
 function! s:ConfigureFont()
   if has("gui_running")
     if has("gui_gtk3")
-      set guifont=Mononoki\ nerd\ font\ mono\ 12
+      set guifont=VictorMono\ Nerd\ Font\ Mono\ Medium\ 12
       colorscheme atom
     endif
     if has("gui_macvim")
