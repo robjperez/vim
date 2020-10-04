@@ -57,7 +57,7 @@ function! s:ConfigureFont()
     endif
     if has("gui_macvim")
       set guifont=VictorMonoNerdFontCompleteM-Medium:h12
-      colorscheme atom
+      colorscheme onedark
     endif
     if has("win32") || has("win64")
       set guifont=VictorMono_NF:h12
@@ -104,6 +104,12 @@ function! s:ConfigureEditorSettings()
 	" Set chars for hidden chars
 	" They will be shown when doing :set list
 	set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<,space:.
+
+  if !has("win32") && !has("win64")
+    set backupdir=/tmp//
+    set directory=/tmp//
+    set undodir=/tmp//
+  endif
 endfunction
 
 function! s:ConfigureVisualElements()
@@ -134,6 +140,11 @@ function! s:ConfigureRemaps()
   nnoremap <C-s> :w<cr>
   nnoremap \ :Rg<Space>
   nnoremap <C-e> :NERDTreeToggle<cr>
+  nnoremap <F5> :buffers<CR>:buffer<Space>
+  inoremap <S-Space> <Esc>
+  inoremap <C-a> <C-o>^
+  inoremap <C-b> <C-o>$
+  inoremap <C-w> <C-o>w
 endfunction
 
 function! s:ConfigureCommands()
