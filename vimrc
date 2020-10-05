@@ -110,6 +110,9 @@ function! s:ConfigureEditorSettings()
     set directory=/tmp//
     set undodir=/tmp//
   endif
+
+  set wildmenu
+  set wildmode=longest:full,full
 endfunction
 
 function! s:ConfigureVisualElements()
