@@ -144,7 +144,6 @@ function! s:ConfigureRemaps()
   nnoremap \ :Rg<Space>
   nnoremap <C-e> :NERDTreeToggle<cr>
   nnoremap <F5> :buffers<CR>:buffer<Space>
-  inoremap <S-Space> <Esc>
   inoremap <C-a> <C-o>^
   inoremap <C-b> <C-o>$
   inoremap <C-w> <C-o>w
