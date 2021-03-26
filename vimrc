@@ -139,6 +139,7 @@ function! s:ConfigureRemaps()
   nnoremap <S-Left> :tabprevious<cr>
   nnoremap <S-Right> :tabnext<cr>
   nnoremap ` :
+  nnoremap º :
   inoremap <C-s> <C-o>:w<cr>
   nnoremap <C-s> :w<cr>
   nnoremap \ :Rg<Space>
